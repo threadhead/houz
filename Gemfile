@@ -5,6 +5,7 @@ gem 'haml'
 gem 'awesome_print'
 
 group :development, :test do
+  gem 'capistrano'
   gem 'rack-test'
   gem 'rspec'
   gem 'guard-rspec'
