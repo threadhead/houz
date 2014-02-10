@@ -55,6 +55,11 @@ def assemble_message(message)
   m + m1_checksum(m)
 end
 
+def task_activation(task_number)
+  message = assemble_message "tn#{task_number.to_i.to_s.rjust(3, '0')}"
+
+end
+
 get '/' do
   haml :index
 end
