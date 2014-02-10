@@ -21,7 +21,7 @@ configure do
 
   set :root_path, File.expand_path(File.dirname(__FILE__))
 
-  set :server_log_file, File.new(File.join(settings.root_path, 'houz.log'), 'a+')
+  set :server_log_file, File.new(File.join(settings.root_path, 'log', 'houz.log'), 'a+')
   settings.server_log_file.sync = true
   use Rack::CommonLogger, settings.server_log_file
   enable :logging
