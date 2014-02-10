@@ -1,8 +1,16 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'houz'
+# set :repo_url, 'git@example.com:me/my_repo.git'
+set :repo_url, 'https://github.com/threadhead/houz.git'
+# set :local_repository,  "file://."
+# set :repository,  "."
+set :deploy_to, "/home/karl/houz"
+
+
+# role :web, "desertsol-apps.net", user: 'karl'
+# role :app, "desertsol-apps.net", user: 'karl'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -11,7 +19,7 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # set :deploy_to, '/var/www/my_app'
 
 # Default value for :scm is :git
-# set :scm, :git
+set :scm, :git
 
 # Default value for :format is :pretty
 # set :format, :pretty
