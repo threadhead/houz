@@ -8,7 +8,12 @@ require 'socket'
 
 if ENV['USERNAME'] && ENV['PASSWORD']
   use Rack::Auth::Basic, "Restricted Area" do |username, password|
-    username == ENV['USERNAME'] and password == ENV['PASSWORD']
+    sleep 0.5
+    if username == ENV['USERNAME'] and password == ENV['PASSWORD']
+      true
+    else
+      # log attempt
+    end
   end
 end
 
@@ -25,13 +30,8 @@ configure do
   settings.server_log_file.sync = true
   use Rack::CommonLogger, settings.server_log_file
   enable :logging
-
 end
 
-def turn_hot_water_on
-  s = TCPSocket.open 'desertsol-apps.net', 2101
-  s.puts
-end
 
 def to_hex_string(val)
   ("0" + val.to_s(16)).slice(-2,2).upcase
