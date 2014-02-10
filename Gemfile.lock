@@ -6,6 +6,9 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
+    capistrano-bundler (1.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     capistrano-rvm (0.1.1)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
@@ -89,6 +92,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   capistrano
+  capistrano-bundler
   capistrano-rvm
   dotenv
   guard-coffeescript

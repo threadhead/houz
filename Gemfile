@@ -9,6 +9,7 @@ gem 'dotenv'
 group :development, :test do
   gem 'capistrano'
   gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
   gem 'rack-test'
   gem 'rspec'
   gem 'guard-rspec'
