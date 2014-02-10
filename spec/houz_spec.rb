@@ -29,16 +29,63 @@ describe 'Houz Srvr' do
     end
   end
 
+  describe 'app.to_hex_string' do
+    it 'returns a 2 character hex string' do
+      expect(app.send(:to_hex_string, 1)).to eq("01")
+      expect(app.send(:to_hex_string, 15)).to eq("0F")
+      expect(app.send(:to_hex_string, 16)).to eq("10")
+      expect(app.send(:to_hex_string, 17)).to eq("11")
+      expect(app.send(:to_hex_string, 32)).to eq("20")
+      expect(app.send(:to_hex_string, 255)).to eq("FF")
+      expect(app.send(:to_hex_string, 256)).to eq("00")
+    end
+  end
+
+  describe 'app.string_number_justify' do
+    it 'returns a number as a 0 justified string' do
+      expect(app.send(:string_number_justify, '1')).to eq("01")
+      expect(app.send(:string_number_justify, '11')).to eq("11")
+      expect(app.send(:string_number_justify, '100')).to eq("100")
+      expect(app.send(:string_number_justify, '1', 4)).to eq("0001")
+      expect(app.send(:string_number_justify, '1', 3)).to eq("001")
+      expect(app.send(:string_number_justify, '1', 10)).to eq("0000000001")
+    end
+  end
+
   describe 'GET /' do
-    before { get '/'}
-    its (:status) { should eq(200) }
-    its (:body) { should include('Hot Water On') }
+    context 'unauthorized' do
+      it 'return an http unauthorized' do
+        get '/'
+        expect(last_response.status).to eq(401)
+      end
+    end
+
+    context 'authorized' do
+      before do
+        authorize 'admin', 'admin'
+        get '/'
+      end
+      its (:status) { should eq(200) }
+      its (:body) { should include('Hot Water On') }
+    end
   end
 
 
   describe 'GET /hot_water_on' do
-    before { get '/hot_water_on'}
-    its (:status) { should eq(200) }
-    # its (:body) { should include('Hot Water On') }
+    context 'unauthorized' do
+      it 'return an http unauthorized' do
+        get '/hot_water_on'
+        expect(last_response.status).to eq(401)
+      end
+    end
+
+    context 'authorized' do
+      before do
+        authorize 'admin', 'admin'
+        get '/hot_water_on'
+      end
+      its (:status) { should eq(200) }
+      # its (:body) { should include('Hot Water On') }
+    end
   end
 end
