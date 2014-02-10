@@ -1,11 +1,16 @@
 require 'rubygems'
+require 'dotenv'
+Dotenv.load
+
 require 'sinatra'
 require 'haml'
 require 'socket'
 
-# use Rack::Auth::Basic, "Restricted Area" do |username, password|
-#   username == 'admin' and password == 'admin'
-# end
+if ENV['USERNAME'] && ENV['PASSWORD']
+  use Rack::Auth::Basic, "Restricted Area" do |username, password|
+    username == ENV['USERNAME'] and password == ENV['PASSWORD']
+  end
+end
 
 before do
 
@@ -55,9 +60,12 @@ def assemble_message(message)
   m + m1_checksum(m)
 end
 
-def task_activation(task_number)
-  message = assemble_message "tn#{task_number.to_i.to_s.rjust(3, '0')}"
+def string_number_justify(str, chrs=2)
+  str.to_i.to_s.rjust(chrs, '0')
+end
 
+def task_activation(task_number)
+  message = assemble_message "tn#{string_number_justify(task_number, 3)}"
 end
 
 get '/' do

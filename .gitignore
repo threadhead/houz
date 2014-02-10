@@ -3,3 +3,4 @@
 *.rbc
 *.sass-cache
 *.log
+.env
