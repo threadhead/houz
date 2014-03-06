@@ -5,6 +5,7 @@ gem 'haml'
 gem 'awesome_print'
 gem 'rake'
 gem 'dotenv'
+gem 'celluloid'
 
 group :development, :test do
   gem 'capistrano'

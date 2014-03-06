@@ -99,6 +99,7 @@ DEPENDENCIES
   capistrano
   capistrano-bundler
   capistrano-rvm
+  celluloid
   dotenv
   guard-coffeescript
   guard-rspec
