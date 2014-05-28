@@ -1,3 +1,4 @@
+ENV['RACK_ENV'] = 'test'
 require 'rubygems'
 # require 'sinatra'
 require 'rspec'
@@ -12,7 +13,6 @@ require File.join(File.dirname(__FILE__), '..', 'houz')
 # require 'capybara'
 # require 'capybara/dsl'
 
-ENV['RACK_ENV'] = 'test'
 
 # set test environments
 set :environment, :test
