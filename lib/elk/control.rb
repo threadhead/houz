@@ -12,6 +12,7 @@ module Elk
     end
 
     def start
+      Celluloid.boot
       @elk_comm = Elk::ElkComm.new(@host, @port)
       @elk_comm.outputs = @outputs
       @elk_comm.async.run
@@ -44,7 +45,7 @@ module Elk
 
     def send_message_to_elk(message)
       @elk_comm.send_message(message)
-      s.puts message
+      puts message
     end
 
     def task_activation(task_number)

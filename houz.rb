@@ -43,7 +43,7 @@ get '/' do
 end
 
 get '/hot_water_on' do
-  task_activation(2)
+  @@elk_control.task_activation(2)
   haml :index
 end
 

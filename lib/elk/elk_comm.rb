@@ -20,7 +20,7 @@ module Elk
       every(@interval) do
         msg = read_noblock
         process_message(msg) if msg
-        send_message
+        send_message_queue
 
         puts "sleeping (#{@interval}s)..."
         # sleep @interval
@@ -44,7 +44,7 @@ module Elk
 
 
     private
-      def send_message
+      def send_message_queue
         unless @queue.empty?
           msg = @queue.pop
           puts ">> sending: #{msg}"
