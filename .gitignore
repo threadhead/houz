@@ -5,3 +5,5 @@
 *.log
 .env
 .capistrano
+config/deploy.rb
+config/deploy/*.rb
