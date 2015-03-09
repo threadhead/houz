@@ -32,7 +32,7 @@ configure do
   use Rack::CommonLogger, settings.server_log_file
   enable :logging
 
-  @@elk_control = Elk::Control.new('192.168.0.6', 2101)
+  @@elk_control = Elk::Control.new('192.168.1.30', 2101)
 end
 
 
