@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.2.1'
+lock '3.3.5'
 
 set :application, 'houz'
 # set :repo_url, 'git@example.com:me/my_repo.git'
@@ -43,7 +43,7 @@ set :linked_dirs, %w{log}
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-set :rvm_ruby_version, '2.1.3'      # Defaults to: 'default'
+set :rvm_ruby_version, '2.2.0'      # Defaults to: 'default'
 
 
 

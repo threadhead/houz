@@ -9,7 +9,7 @@ gem 'dotenv'
 gem 'celluloid'
 
 group :development, :test do
-  gem 'capistrano'
+  gem 'capistrano', '~> 3.3.5'
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
   gem 'rack-test'
