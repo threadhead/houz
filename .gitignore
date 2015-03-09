@@ -4,3 +4,4 @@
 *.sass-cache
 *.log
 .env
+.capistrano
