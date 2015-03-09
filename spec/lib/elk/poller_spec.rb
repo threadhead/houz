@@ -8,7 +8,7 @@ describe Elk::Poller do
 
   # after { @poller.terminate }
 
-  it { expect(@poller.running).to be_false }
+  it { expect(@poller.running).to eq(false) }
 
   describe '.send_message_for' do
     before do

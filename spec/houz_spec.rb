@@ -16,8 +16,8 @@ describe 'Houz Srvr' do
         authorize 'admin', 'admin'
         get '/'
       end
-      specify {expect (last_response.status) { should eq(200) }}
-      specify {expect (last_response.body) { should include('Hot Water On') }}
+      specify { expect(last_response.status).to eq(200) }
+      specify { expect(last_response.body).to include('Hot Water On') }
     end
   end
 

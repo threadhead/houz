@@ -24,22 +24,22 @@ describe Elk::Outputs do
 
   it 'set the value of an output and return' do
     @outs.set_state(4, '1')
-    expect(@outs.value(4)).to be_true
+    expect(@outs.value(4)).to eq(true)
     @outs.set_state(4, '0')
-    expect(@outs.value(4)).to be_false
+    expect(@outs.value(4)).to eq(false)
   end
 
   it 'sets output values on a passed elk outputs message string' do
     @outs.set_state_elk_string('100000000')
-    expect(@outs.value(1)).to be_true
-    expect(@outs.value(2)).to be_false
+    expect(@outs.value(1)).to eq(true)
+    expect(@outs.value(2)).to eq(false)
 
     @outs.set_state_elk_string('010000000')
-    expect(@outs.value(1)).to be_false
-    expect(@outs.value(2)).to be_true
+    expect(@outs.value(1)).to eq(false)
+    expect(@outs.value(2)).to eq(true)
 
     @outs.set_state_elk_string('000000001')
-    expect(@outs.value(9)).to be_true
+    expect(@outs.value(9)).to eq(true)
   end
 
 end
